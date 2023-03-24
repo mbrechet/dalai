@@ -7,3 +7,9 @@ services:
     volumes:
       - ./models/alpaca:/root/dalai/alpaca
       - ./models/llama:/root/dalai/llama
+      - /var/lib/nvidia/lib64:/usr/local/nvidia/lib64
+      - /var/lib/nvidia/bin:/usr/local/nvidia/bin
+    devices:
+      - /dev/nvidia0:/dev/nvidia0
+      - /dev/nvidia-uvm:/dev/nvidia-uvm
+      - /dev/nvidiactl:/dev/nvidiactl
