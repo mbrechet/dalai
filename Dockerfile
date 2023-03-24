@@ -1,4 +1,11 @@
-FROM python:3.10-slim-buster
+FROM nvidia/cuda:11.6.0-base-ubuntu20.04
+
+RUN apt-get update \
+    && apt-get install -y python3.9=3.9.5-3ubuntu0~20.04.1 python3-distutils=3.8.10-0ubuntu1~20.04 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/bin/python3.9 /usr/local/bin/python
+
 
 # The dalai server runs on port 3000
 EXPOSE 3000
