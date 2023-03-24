@@ -23,9 +23,6 @@ RUN apt-get update \
 
 WORKDIR /root/dalai
 
-ARG DOCKER_UID=1100
-ARG DOCKER_GID=1100
-
 # Install dalai and its dependencies
 RUN npm install dalai@0.3.1
 
