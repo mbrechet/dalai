@@ -23,11 +23,16 @@ RUN apt-get update \
 
 WORKDIR /root/dalai
 
+COPY package*.json .
 # Install dalai and its dependencies
-RUN npm install dalai@0.3.1
+RUN npm install
 
-RUN npx dalai alpaca setup
+COPY . .
+
+RUN npm run setup
+
+RUN node bin/cli.js alpaca setup
 
 # Run the dalai server
-CMD [ "npx", "dalai", "serve" ]
+CMD [ "node", "bin/cli.js", "serve" ]
 
